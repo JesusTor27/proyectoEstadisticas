@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora de Regresión Lineal</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">PROYECTO FINAL: ESTADISTICA</div>
+    </header>
+    <div class="intro">
+        <h1>Calculadora de Regresión Lineal Simple</h1>
+        <p>La regresión lineal es una técnica estadística utilizada para modelar y analizar las relaciones entre una variable dependiente y una o más variables independientes. Su objetivo es encontrar la mejor línea recta que prediga los valores de la variable dependiente en función de las variables independientes.</p>
+        <p>En esta calculadora, puedes ingresar valores de X y Y separados por comas para calcular la regresión lineal. La calculadora te proporcionará la ecuación de la recta de regresión, el coeficiente de determinación (R²) y una gráfica de dispersión con la línea de regresión.</p>
+        <button onclick="document.getElementById('calcSection').scrollIntoView({ behavior: 'smooth' });">Probar</button>
+    </div>
+    <div class="container" id="calcSection">
+        <h2>Ingresar Datos</h2>
+        <div class="form-group">
+            <label for="inputX"><strong>Valores de X (separados por comas):</strong></label>
+            <input type="text" id="inputX" required>
+        </div>
+        <div class="form-group">
+            <label for="inputY"><strong>Valores de Y (separados por comas):</strong></label>
+            <input type="text" id="inputY" required>
+        </div>
+        <button onclick="calcularRegresion()">Calcular Regresión</button>
+        <h2>Resultados</h2>
+        <table id="resultsTable">
+            <thead>
+                <tr>
+                    <th>i</th>
+                    <th>X</th>
+                    <th>Y</th>
+                    <th>(Xi - X̄)</th>
+                    <th>(Yi - Ȳ)</th>
+                    <th>(Xi - X̄)(Yi - Ȳ)</th>
+                    <th>(Xi - X̄)²</th>
+                    <th>(Yi - Ȳ)²</th>
+                    <th>Ŷi</th>
+                    <th>(Ŷi - Ȳ)²</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div id="coefficients">
+            <p><strong>B0 (intercepto): </strong><span id="b0"></span></p>
+            <p> <strong>B1 (pendiente): </strong><span id="b1"></span></p>
+            <p><strong>R² (coeficiente de determinación): </strong><span id="r2"></span></p>
+            <p id="evaluationMessage"><strong></strong></p>
+            <p id="formula"><strong></strong></p>
+        </div>
+        <canvas id="regressionChart" width="150" height="50"></canvas>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; Created by Luis Baldovino - Jesús Torres</p>
+    </footer>
+
+    <script src="regression.js"></script>
+</body>
+</html>
